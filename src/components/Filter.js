@@ -1,6 +1,10 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import MovieContext from "../MovieContext";
 
-const Filter = ({ setActiveGenre, activeGenre, setFiltered, movies }) => {
+const Filter = () => {
+  const { setActiveGenre, activeGenre, setFiltered, movies } =
+    useContext(MovieContext);
+
   useEffect(() => {
     if (activeGenre === 0) {
       setFiltered(movies);

@@ -1,26 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import MovieContext from "../MovieContext";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 function Movie({ movie }) {
-  const { addToFavourites } = useContext(MovieContext);
+  const { addToFavourites, isFav } = useContext(MovieContext);
+
   return (
     <motion.div
-      onClick={() =>
-        addToFavourites(movie.id, movie.title, movie.backdrop_path)
-      }
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
       layout
       className="movie"
     >
-      <div className="shadow"></div>
-      <img
-        src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-        alt=""
-      />
+      {isFav(movie.id) ? (
+        <AiOutlineStar onClick={() => addToFavourites(movie)} />
+      ) : (
+        <AiFillStar onClick={() => addToFavourites(movie)} />
+      )}
+      <Link to={`/movie/${movie.id}`} key={movie.id}>
+        <div className="shadow"></div>
+      </Link>
+      <img src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} alt="" />
       <h2>{movie.title}</h2>
     </motion.div>
   );
