@@ -1,11 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Filter from "./components/Filter";
-import Search from "./components/Search";
-import Header from "./components/Header";
-import Panel from "./components/Panel";
-import MoviesList from "./components/MoviesList";
 import { MovieProvider } from "./MovieContext";
+import Panel from "./components/Panel";
+import Container from "./components/Container";
 import Details from "./components/Details";
 
 function App() {
@@ -18,12 +15,7 @@ function App() {
             element={
               <>
                 <Panel />
-                <div className="container">
-                  <Search />
-                  <Filter />
-                  <Header />
-                  <MoviesList />
-                </div>
+                <Container />
               </>
             }
           />

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import MovieContext from "../MovieContext";
 
 const Filter = () => {
-  const { setActiveGenre, activeGenre, setFiltered, movies } =
+  const { setActiveGenre, activeGenre, setFiltered, movies, header } =
     useContext(MovieContext);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Filter = () => {
       );
       setFiltered(filtered);
     }
-  }, [activeGenre]);
+  }, [activeGenre, header]);
 
   return (
     <div className="filter-container">

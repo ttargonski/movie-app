@@ -16,27 +16,29 @@ const Panel = () => {
     header,
     fetchPopular,
     getFavourites,
-    fetchUncoming,
-    fetchTopRated,
     fetchNowPlaying,
+    fetchTopRated,
+    fetchUncoming,
   } = useContext(MovieContext);
 
   return (
     <div className="panel">
       <div>
         <MdOutlineMovieFilter
-          className={header === "Trending" ? "active" : null}
           onClick={() => fetchPopular()}
+          className={header === "Trending" ? "active" : null}
         />
 
         <BiMoviePlay
-          className={header === "Now playing" ? "active" : null}
           onClick={() => fetchNowPlaying()}
-        ></BiMoviePlay>
+          className={header === "Now playing" ? "active" : null}
+        />
+
         <BsStars
-          className={header === "Top rated" ? "active" : null}
           onClick={() => fetchTopRated()}
-        ></BsStars>
+          className={header === "Top rated" ? "active" : null}
+        />
+
         <BiCameraMovie
           onClick={() => fetchUncoming()}
           className={header === "Uncoming" ? "active" : null}
@@ -46,7 +48,8 @@ const Panel = () => {
         <AiOutlineStar
           onClick={() => getFavourites()}
           className={header === "Your favourites" ? "active" : null}
-        ></AiOutlineStar>
+        />
+
         <FaUserCircle></FaUserCircle>
       </div>
     </div>

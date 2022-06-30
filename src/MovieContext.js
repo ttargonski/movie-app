@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 const MovieContext = createContext();
 
@@ -6,9 +7,10 @@ export function MovieProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [activeGenre, setActiveGenre] = useState(0);
-
   const [header, setHeader] = useState("Trending");
-  const [favourites, setFavourites] = useState([]);
+
+  // localstorage state
+  const [favourites, setFavourites] = useLocalStorage("fav", []);
 
   const fetchPopular = async () => {
     const data = await fetch(
@@ -18,6 +20,7 @@ export function MovieProvider({ children }) {
     setMovies(movies.results);
     setFiltered(movies.results);
     setHeader("Trending");
+    setActiveGenre(0);
   };
 
   const fetchSearch = async (query) => {
@@ -28,6 +31,7 @@ export function MovieProvider({ children }) {
     setMovies(movies.results);
     setFiltered(movies.results);
     setHeader(`Results for "${query}"`);
+    setActiveGenre(0);
   };
 
   const fetchNowPlaying = async () => {
@@ -38,6 +42,7 @@ export function MovieProvider({ children }) {
     setMovies(movies.results);
     setFiltered(movies.results);
     setHeader("Now playing");
+    setActiveGenre(0);
   };
 
   const fetchTopRated = async () => {
@@ -48,6 +53,7 @@ export function MovieProvider({ children }) {
     setMovies(movies.results);
     setFiltered(movies.results);
     setHeader("Top rated");
+    setActiveGenre(0);
   };
 
   const fetchUncoming = async () => {
@@ -58,6 +64,7 @@ export function MovieProvider({ children }) {
     setMovies(movies.results);
     setFiltered(movies.results);
     setHeader("Uncoming");
+    setActiveGenre(0);
   };
 
   const addToFavourites = (movie) => {
@@ -79,6 +86,7 @@ export function MovieProvider({ children }) {
     setMovies(favourites);
     setFiltered(favourites);
     setHeader("Your favourites");
+    setActiveGenre(0);
   };
 
   const isFav = (id) => {

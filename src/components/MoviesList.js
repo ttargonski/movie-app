@@ -5,11 +5,14 @@ import MovieContext from "../MovieContext";
 import { motion } from "framer-motion";
 
 const MoviesList = () => {
-  const { filtered, fetchPopular } = useContext(MovieContext);
+  const { filtered, fetchPopular, header, setActiveGenre } =
+    useContext(MovieContext);
 
   useEffect(() => {
-    fetchPopular();
-  }, []);
+    if (header === "Trending") {
+      fetchPopular();
+    }
+  }, [header]);
 
   return (
     <>

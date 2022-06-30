@@ -12,7 +12,6 @@
 /* PANEL */
 
 .panel {
-  background-color: #fff;
   width: 55px;
   height: 342px;
   position: fixed;
@@ -174,9 +173,33 @@
 
 /* MOVIE DETAILS */
 
-.panel.back {
+.back {
   height: max-content;
-  margin-top: 5px;
+  margin-top: 10px;
+  width: 55px;
+  position: fixed;
+  top: 20px;
+  background-color: hsl(223, 36%, 14%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.back svg {
+  font-size: 20px;
+  cursor: pointer;
+  color: hsl(221, 23%, 73%);
+}
+
+.back svg:hover {
+  opacity: 0.7;
+}
+
+.back svg.active {
+  color: #fff;
 }
 
 .img-bg {
@@ -188,4 +211,42 @@
   z-index: -2;
   opacity: 0.1;
   object-fit: cover;
+}
+
+.details h4 {
+  margin: 0;
+  color: hsl(223, 36%, 92%);
+}
+
+.details ul {
+  padding: 0;
+  list-style: none;
+  color: hsl(223, 36%, 82%);
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.details p {
+  color: hsl(223, 36%, 82%);
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.details a {
+  text-decoration: none;
+  color: hsl(223, 36%, 75%);
+}
+
+.details a:hover {
+  opacity: 0.7;
+}
+
+#rate {
+  color: yellow;
+
+  border-radius: 15px;
+  width: max-content;
+}
+#rate svg {
+  margin-right: 5px;
 }

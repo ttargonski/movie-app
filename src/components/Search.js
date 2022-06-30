@@ -9,7 +9,7 @@ const Search = () => {
 
   const onKeyUp = (event) => {
     if (event.key === "Enter" && value !== "") {
-      const query = value.split(/\s/).join("");
+      const query = value.trim();
       if (query === "") {
         fetchPopular();
       } else {
