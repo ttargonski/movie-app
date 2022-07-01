@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import MovieContext from "../MovieContext";
+import genres from "../genres";
 
 const Filter = () => {
   const { setActiveGenre, activeGenre, setFiltered, movies, header } =
@@ -18,24 +19,25 @@ const Filter = () => {
 
   return (
     <div className="filter-container">
-      <button
-        className={activeGenre === 0 ? "active" : null}
-        onClick={() => setActiveGenre(0)}
-      >
-        All
-      </button>
-      <button
-        className={activeGenre === 35 ? "active" : null}
-        onClick={() => setActiveGenre(35)}
-      >
-        Comedy
-      </button>
-      <button
-        className={activeGenre === 28 ? "active" : null}
-        onClick={() => setActiveGenre(28)}
-      >
-        Action
-      </button>
+      {genres && (
+        <>
+          <button
+            className={activeGenre === 0 ? "active" : null}
+            onClick={() => setActiveGenre(0)}
+          >
+            All
+          </button>
+          {genres.map((genre) => (
+            <button
+              key={genre.id}
+              className={activeGenre === genre.id ? "active" : null}
+              onClick={() => setActiveGenre(genre.id)}
+            >
+              {genre.name}
+            </button>
+          ))}
+        </>
+      )}
     </div>
   );
 };
