@@ -144,6 +144,19 @@
   color: hsl(224, 32%, 9%);
 }
 
+.filter-container button.more {
+  color: hsl(221, 23%, 63%);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+.filter-container button.more:hover {
+  background-color: hsl(223, 36%, 24%);
+}
+
 /* SEARCH */
 
 .search-movies {
